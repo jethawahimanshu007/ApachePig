@@ -1,0 +1,18 @@
+register AddToMap.jar
+register CustomDelimit.jar
+a = load 'alice.txt' using myudfs.CustomDelimitAttempt2();
+b = foreach a generate myudfs.AddToMap();
+c = foreach b generate flatten($0);
+distinct_c = DISTINCT c;
+distinct_c_group = group distinct_c by $1;
+distinct_c_group_toGetAllValues = foreach distinct_c_group generate $0,COUNT($1);
+common_words = filter distinct_c_group_toGetAllValues by $1==12;
+d = group c by $1;
+count_for_all_words = foreach d generate $0,COUNT($1);
+e = foreach d generate $0,c.$0;
+
+count_for_common_words = JOIN count_for_all_words by $0, common_words by $0;
+final_count_of_common_words = foreach count_for_common_words generate $0,$1;
+
+final_count_of_common_words_ordered = ORDER final_count_of_common_words by $1 DESC;
+store final_count_of_common_words_ordered into 'finalOPDir';

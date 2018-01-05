@@ -1,0 +1,2 @@
+rm -rf finalOPDir
+pig -x local pigScript.txt 

@@ -1,0 +1,18 @@
+-----------THIS PART CAN BE SKIPPED------------------------
+There are 5 files and one output directory :
+1) run.sh -- it is used to execute the pigscript.
+2) CustomDelimit.jar  and  AddToMap.jar  --- Used to register UDFs(User defined functions) into pig.
+3) pigScript.txt -- This is the main pigscript file.
+4) alice.txt -- Input file
+5) finalOPDir -- Directory in which final OP will be written.
+
+
+
+----------------EXECUTION---------------------------
+
+To execute, just put the given directory anywhere in file system and execute following command:
+
+sh run.sh
+
+
+And check the output in finalOPDir directory.
