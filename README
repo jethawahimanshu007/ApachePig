@@ -1,4 +1,3 @@
------------THIS PART CAN BE SKIPPED------------------------
 There are 5 files and one output directory :
 1) run.sh -- it is used to execute the pigscript.
 2) CustomDelimit.jar  and  AddToMap.jar  --- Used to register UDFs(User defined functions) into pig.
